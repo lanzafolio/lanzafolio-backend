@@ -11,6 +11,24 @@ app.use(cors());
 const ALPHA_VANTAGE_KEY = process.env.ALPHA_VANTAGE_API_KEY;
 const FINNHUB_KEY = process.env.FINNHUB_API_KEY;
 
+
+// --- הוספת נקודת בדיקה (דיבאג) ---
+app.get('/test-key', async (req, res) => {
+    try {
+        const url = `https://www.alphavantage.co/query?function=TOP_GAINERS_LOSERS&apikey=${ALPHA_VANTAGE_KEY}`;
+        const response = await fetch(url);
+        const data = await response.json();
+
+        // החזר את כל מה ש-Alpha Vantage שלח, בלי פילטר
+        res.json({
+            message: "זוהי התשובה הגולמית מ-Alpha Vantage:",
+            rawData: data
+        });
+
+    } catch (error) {
+        res.json({ error: error.message });
+    }
+});
 // --- נקודה 1: נתונים לדף הבית (עד 20 מכל סוג) ---
 app.get('/market-movers', async (req, res) => {
     try {
@@ -91,4 +109,5 @@ app.get('/stock-data', async (req, res) => {
 
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`שרת מאזין בפורט ${PORT}`);
+
 });
