@@ -15,8 +15,8 @@ const FINNHUB_KEY = "d3stje9r01qpdd5l8sjgd3stje9r01qpdd5l8sk0 FINNHUB";
 // קריאת המפתחות הסודיים ממשתני הסביבה (נגדיר אותם ב-Render)
 // const ALPHA_VANTAGE_KEY = process.env.ALPHA_VANTAGE_API_KEY;
 // const FINNHUB_KEY = process.env.FINNHUB_API_KEY;
-const ALPHA_VANTAGE_KEY = process.env.ALPHA_VANTAGE_API_KEY;
-const FINNHUB_KEY = process.env.FINNHUB_API_KEY;
+// const ALPHA_VANTAGE_KEY = process.env.ALPHA_VANTAGE_API_KEY;
+// const FINNHUB_KEY = process.env.FINNHUB_API_KEY;
 
 // --- נקודה 1: נתונים לדף הבית (עד 20 מכל סוג) ---
 app.get('/market-movers', async (req, res) => {
@@ -100,6 +100,7 @@ app.listen(PORT, '0.0.0.0', () => {
     console.log(`שרת מאזין בפורט ${PORT}`);
 
 });
+
 
 
 
