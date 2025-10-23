@@ -7,6 +7,14 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(cors());
 
+// --- בדיקה זמנית - למחוק מיד אחרי! ---
+const ALPHA_VANTAGE_KEY = "TX49ZKO7ONIAKEU6 ALPHA VANTAGE";
+const FINNHUB_KEY = "d3stje9r01qpdd5l8sjgd3stje9r01qpdd5l8sk0 FINNHUB";
+// --- סוף בדיקה זמנית ---
+
+// קריאת המפתחות הסודיים ממשתני הסביבה (נגדיר אותם ב-Render)
+// const ALPHA_VANTAGE_KEY = process.env.ALPHA_VANTAGE_API_KEY;
+// const FINNHUB_KEY = process.env.FINNHUB_API_KEY;
 const ALPHA_VANTAGE_KEY = process.env.ALPHA_VANTAGE_API_KEY;
 const FINNHUB_KEY = process.env.FINNHUB_API_KEY;
 
@@ -92,5 +100,6 @@ app.listen(PORT, '0.0.0.0', () => {
     console.log(`שרת מאזין בפורט ${PORT}`);
 
 });
+
 
 
